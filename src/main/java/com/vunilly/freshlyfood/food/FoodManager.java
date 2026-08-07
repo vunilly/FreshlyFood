@@ -33,6 +33,7 @@ public class FoodManager implements Listener {
     }
 
     private void loadFoods() {
+        registeredFoods.clear();
         addFood(new Pear(plugin));
         addFood(new GoldenPear(plugin));
         addFood(new VeganFish(plugin));
@@ -73,7 +74,7 @@ public class FoodManager implements Listener {
             float modelData = floats.get(0);
 
             for (Food food : registeredFoods) {
-                if (food.getCustomModelData() == modelData) {
+                if (Math.abs(food.getCustomModelData() - modelData) < 0.001f) {
                     food.onItemConsume(event.getPlayer());
                     break;
                 }

@@ -28,7 +28,11 @@ public class VeganSteak extends Food {
         if (meta != null) {
             meta.itemName(Lang.get("foods.vegan_steak").getFirst());
             CustomModelDataComponent cmd = meta.getCustomModelDataComponent();
-            cmd.setFloats(List.of(getCustomModelData()));
+            if (cmd == null) {
+                cmd = CustomModelDataComponent.customModelData(List.of(getCustomModelData()));
+            } else {
+                cmd.setFloats(List.of(getCustomModelData()));
+            }
             meta.setCustomModelDataComponent(cmd);
             item.setItemMeta(meta);
         }
