@@ -8,5 +8,5 @@ build
 .kotlin
 
 bin
-# Ignore CLAUDE.md (originally, this had "X", fixed this by doing "Y")
+# Ignore CLAUDE.md hihi
 CLAUDE.md
