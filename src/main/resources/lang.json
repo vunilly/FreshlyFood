@@ -11,7 +11,7 @@
         },
         "msg": {
             "rp" : {
-                "title" : "§6[§eFreshlyFood§6] §fBitte aktzeptiere das Texturen Packet!"
+                "txt" : "<gradient:#ff52dc:#c4abff>Bitte aktzeptiere das Texturen Packet!"
             },
             "cmd" : {
                 "needOp": "<gradient:#ff52dc:#c4abff>Du brauchst OP um diesen Befehl zu verwenden.",

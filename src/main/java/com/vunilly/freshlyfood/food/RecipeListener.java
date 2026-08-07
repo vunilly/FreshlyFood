@@ -23,13 +23,6 @@ public class RecipeListener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        Player player = event.getPlayer();
-
-        // player.discoverRecipe(VeganSteak.RECIPE_KEY);
-        // player.discoverRecipe(CookedVeganSteak.RECIPE_KEY);
-        // player.discoverRecipe(VeganFish.RECIPE_KEY);
-        // player.discoverRecipe(CookedVeganFish.RECIPE_KEY);
-        // player.discoverRecipe(Pear.RECIPE_KEY);
-        // player.discoverRecipe(GoldenPear.RECIPE_KEY);
+        plugin.getFoodManager().discoverRecipes(event.getPlayer());
     }
 }

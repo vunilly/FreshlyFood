@@ -20,17 +20,12 @@ public class FreshlyFoodCommand implements CommandExecutor {
             @NotNull String @NotNull [] args) {
 
         if (!(sender instanceof Player player)) {
-            sender.sendMessage(Lang.get("msg.onlyPlayersAllowed").getFirst());
-            return true;
-        }
-
-        if (!sender.isOp()) {
-            sender.sendMessage(Lang.get("msg.needOp").getFirst());
+            sender.sendMessage(Lang.get("msg.cmd.onlyPlayersAllowed").getFirst());
             return true;
         }
 
         if (args.length > 0) {
-            sender.sendMessage(Lang.get("msg.tooManyParamsOkay", Placeholder.parsed("command", command.getName())).getFirst());
+            sender.sendMessage(Lang.get("msg.cmd.tooManyParamsOkay", Placeholder.parsed("command", command.getName())).getFirst());
         }
 
         FreshlyFoodMenu menu = new FreshlyFoodMenu(player, 0);

@@ -11,14 +11,14 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.components.CustomModelDataComponent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.vunilly.freshlyfood.food.AbstractFood;
+import com.vunilly.freshlyfood.food.Food;
 import com.vunilly.freshlyfood.utils.Lang;
 import java.util.List;
 
-public class CookedVeganFish extends AbstractFood {
+public class CookedVeganFish extends Food {
 
     public CookedVeganFish(JavaPlugin plugin) {
-        super(plugin, 1001.0f);
+        super(plugin, 1001.0f, "cooked_vegan_fish");
     }
 
     @Override
@@ -52,6 +52,6 @@ public class CookedVeganFish extends AbstractFood {
 
     @Override
     public void onItemConsume(Player player) {
-        // Deine Logik hier rein
+        
     }
 }

@@ -17,12 +17,11 @@ import com.vunilly.freshlyfood.menu.FreshlyFoodMenu;
 
 public class ClickMenuListener implements Listener {
     private boolean isMenu(InventoryHolder holder) {
-        return holder instanceof FreshlyFoodMenu || holder instanceof ClickMenu;
+        return holder instanceof ClickMenu;
     }
 
     @EventHandler(ignoreCancelled = true)
     public void onInventoryClick(InventoryClickEvent event) {
-        // 1. Prüfen, ob das geklickte Inventar unser Interface nutzt
         if (!(event.getInventory().getHolder() instanceof ClickMenu)) {
             return;
         }
@@ -46,11 +45,8 @@ public class ClickMenuListener implements Listener {
             return;
         }
 
-        // 2. Das magische Stück: Wir casten den Holder zu unserem Interface
         ClickMenu menu = (ClickMenu) event.getInventory().getHolder();
 
-        // 3. Wir rufen einfach die Methode auf. Da es nicht mehr static ist,
-        // weiß das jeweilige Objekt GANZ VON ALLEINE, was es tun muss!
         menu.handleClick(event.getRawSlot(), event.getClick(), player);
     }
 

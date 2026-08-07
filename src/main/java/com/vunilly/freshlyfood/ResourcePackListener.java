@@ -21,8 +21,8 @@ public class ResourcePackListener implements Listener {
         .packs(
             ResourcePackInfo.resourcePackInfo(
                 UUID.randomUUID(),
-                URI.create("https://example.com/my-pack.zip"),
-                "sha1-hash-of-pack"
+                URI.create("https://github.com/vunilly/FreshlyFood/releases/download/v1.0/FreshlyFood-RP-v1.0.zip"),
+                "d66feb560211056b0f9025a6575a6df0c808de5c"
             )
         )
         .required(true)

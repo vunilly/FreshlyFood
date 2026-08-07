@@ -16,18 +16,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FoodManager implements Listener {
-    
+
     private final JavaPlugin plugin;
-    // Hier speichern wir alle unsere geladenen Essen
-    private final static List<AbstractFood> registeredFoods = new ArrayList<>();
+    private final static List<Food> registeredFoods = new ArrayList<>();
 
     public FoodManager(JavaPlugin plugin) {
         this.plugin = plugin;
-        // Der Manager ist der EINZIGE Listener für die Essen-Events
         Bukkit.getPluginManager().registerEvents(this, plugin);
-        
-        // Alle Items laden
         loadFoods();
+    }
+
+    public void discoverRecipes(Player player) {
+        for (Food food : registeredFoods) {
+            player.discoverRecipe(food.getRecipeKey());
+        }
     }
 
     private void loadFoods() {
@@ -39,7 +41,7 @@ public class FoodManager implements Listener {
         addFood(new CookedVeganSteak(plugin));
     }
 
-    private void addFood(AbstractFood food) {
+    private void addFood(Food food) {
         registeredFoods.add(food);
         food.registerRecipe();
     }
@@ -70,7 +72,7 @@ public class FoodManager implements Listener {
         if (floats != null && !floats.isEmpty()) {
             float modelData = floats.get(0);
 
-            for (AbstractFood food : registeredFoods) {
+            for (Food food : registeredFoods) {
                 if (food.getCustomModelData() == modelData) {
                     food.onItemConsume(event.getPlayer());
                     break;

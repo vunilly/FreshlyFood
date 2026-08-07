@@ -11,14 +11,14 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.components.CustomModelDataComponent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.vunilly.freshlyfood.food.AbstractFood;
+import com.vunilly.freshlyfood.food.Food;
 import com.vunilly.freshlyfood.utils.Lang;
 import java.util.List;
 
-public class GoldenPear extends AbstractFood {
+public class GoldenPear extends Food {
 
     public GoldenPear(JavaPlugin plugin) {
-        super(plugin, 1002.0f);
+        super(plugin, 1002.0f, "golden_pear");
     }
 
     @Override
@@ -41,7 +41,7 @@ public class GoldenPear extends AbstractFood {
         ShapedRecipe recipe = new ShapedRecipe(new NamespacedKey(plugin, "golden_pear"), createItem());
 
         recipe.shape("GGG", "GAG", "GGG");
-        recipe.setIngredient('G', Material.GOLD_INGOT);
+        recipe.setIngredient('G', Material.GOLD_NUGGET);
         ItemStack normalPear = new Pear(plugin).createItem();
         recipe.setIngredient('A', new RecipeChoice.ExactChoice(normalPear));
 
@@ -50,6 +50,6 @@ public class GoldenPear extends AbstractFood {
 
     @Override
     public void onItemConsume(Player player) {
-        // Deine Logik beim Essen der Birne hier rein
+        
     }
 }
