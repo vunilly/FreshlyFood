@@ -29,6 +29,7 @@ public class CookedVeganFish extends Food {
         if (meta != null) {
             meta.itemName(Lang.get("foods.cooked_vegan_fish").getFirst());
             CustomModelDataComponent cmd = meta.getCustomModelDataComponent();
+            // Prevent NPE when custom model data is not yet present
             if (cmd == null) {
                 cmd = CustomModelDataComponent.customModelData(List.of(getCustomModelData()));
             } else {

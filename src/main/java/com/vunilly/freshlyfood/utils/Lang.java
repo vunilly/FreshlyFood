@@ -48,6 +48,7 @@ public class Lang {
             }
         } catch (IOException e) {
             if (plugin != null) {
+                // Use plugin logger for better error reporting in the server console
                 plugin.getLogger().severe("Fehler beim Laden der Sprachdatei", e);
             } else {
                 e.printStackTrace();
@@ -149,6 +150,7 @@ public class Lang {
         List<String> lines = LANG.get(key);
 
         if (lines == null || lines.isEmpty()) {
+            // Handle missing or empty language entries gracefully
             return key;
         }
 

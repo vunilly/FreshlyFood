@@ -28,6 +28,7 @@ public class VeganSteak extends Food {
         if (meta != null) {
             meta.itemName(Lang.get("foods.vegan_steak").getFirst());
             CustomModelDataComponent cmd = meta.getCustomModelDataComponent();
+            // Prevent NPE when custom model data is not yet present
             if (cmd == null) {
                 cmd = CustomModelDataComponent.customModelData(List.of(getCustomModelData()));
             } else {
