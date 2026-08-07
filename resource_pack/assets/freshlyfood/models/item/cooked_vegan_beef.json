@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "freshlyfood:item/cooked_vegan_beef"
+  }
+}

@@ -1,0 +1,12 @@
+name: FreshlyFood
+version: '1.0'
+main: com.vunilly.freshlyfood.FreshlyFood
+api-version: '26.2'
+description: Adds new and vegan Food
+author: Vunilly
+
+commands:
+  freshlyfood:
+    description: Shows a list of custom items
+    aliases: [ff, food, fooditem]
+    usage: /freshlyfood

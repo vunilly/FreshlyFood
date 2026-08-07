@@ -1,0 +1,26 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "entries": [
+      {
+        "threshold": 1001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "freshlyfood:item/pear"
+        }
+      },
+      {
+        "threshold": 1002,
+        "model": {
+          "type": "minecraft:model",
+          "model": "freshlyfood:item/golden_pear"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/apple"
+    }
+  }
+}

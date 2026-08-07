@@ -1,0 +1,32 @@
+{
+    "lang": {
+        "foods": {
+            "tofu" : "Tofu",
+            "vegan_steak" : "Veganes Steak",
+            "vegan_fish" : "Veganer Fisch",
+            "cooked_vegan_steak" : "Gekochtes Veganes Steak",
+            "cooked_vegan_fish" : "Gekochter Veganer Fisch",
+            "pear" : "Birne",
+            "golden_pear" : "Goldene Birne"
+        },
+        "msg": {
+            "rp" : {
+                "title" : "§6[§eFreshlyFood§6] §fBitte aktzeptiere das Texturen Packet!"
+            },
+            "cmd" : {
+                "needOp": "<gradient:#ff52dc:#c4abff>Du brauchst OP um diesen Befehl zu verwenden.",
+                "onlyPlayersAllowed": "<gradient:#ff52dc:#c4abff>Nur Spieler*innen können diesen Befehl verwenden!",
+                "tooManyParams": "<gradient:#ff52dc:#c4abff>Dieser Befehl benötigt keine weiteren Parameter!",
+                "tooManyParamsOkay" : "<gradient:#ff52dc:#c4abff>Du musst nur \"/<command>\" eingeben btw :)",
+                "tooFewParams": "<gradient:#ff52dc:#c4abff>Dieser Befehl benötigt mehr Parameter!"
+            }
+        },
+        "menu": {
+            "freshlyfood": {
+                "title" :  "<!i><b><gradient:#7f6bff:#c4abff>Alle FreshlyFoods Items",
+                "nextPage" : "<!i><b><gradient:#7f6bff:#c4abff>Nächste Seite",
+                "previousPage" : "<!i><b><gradient:#7f6bff:#c4abff>Vorherige Seite"
+            }
+        }
+    }
+}
