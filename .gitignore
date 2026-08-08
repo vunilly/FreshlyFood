@@ -8,3 +8,5 @@ build
 .kotlin
 
 bin
+# Ignore CLAUDE.md hihi
+CLAUDE.md

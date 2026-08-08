@@ -27,6 +27,7 @@ public class Lang {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     public static final Map<String, List<String>> LANG = new LinkedHashMap<>();
     private static File dataFile;
+    private static JavaPlugin plugin;
 
     public static void clearData() {
         LANG.clear();
@@ -46,7 +47,12 @@ public class Lang {
                 loadJsonSection(root.getAsJsonObject("lang"), "");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            if (plugin != null) {
+                // Use plugin logger for better error reporting in the server console
+                plugin.getLogger().severe("Fehler beim Laden der Sprachdatei", e);
+            } else {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -101,7 +107,11 @@ public class Lang {
         try (FileWriter writer = new FileWriter(dataFile, StandardCharsets.UTF_8)) {
             writer.write(GSON.toJson(root));
         } catch (IOException e) {
-            e.printStackTrace();
+            if (plugin != null) {
+                plugin.getLogger().severe("Fehler beim Speichern der Sprachdatei", e);
+            } else {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -113,6 +123,7 @@ public class Lang {
         }
 
         dataFile = new File(pluginFolder, "lang.json");
+        Lang.plugin = plugin;
 
         if (!dataFile.exists()) {
             plugin.saveResource("lang.json", false);
@@ -138,7 +149,8 @@ public class Lang {
     public static String getString(String key) {
         List<String> lines = LANG.get(key);
 
-        if (lines == null) {
+        if (lines == null || lines.isEmpty()) {
+            // Handle missing or empty language entries gracefully
             return key;
         }
 

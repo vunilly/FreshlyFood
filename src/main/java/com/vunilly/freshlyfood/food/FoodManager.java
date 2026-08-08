@@ -33,6 +33,8 @@ public class FoodManager implements Listener {
     }
 
     private void loadFoods() {
+        // Prevent duplicate food registration/recipes when reloading the plugin
+        registeredFoods.clear();
         addFood(new Pear(plugin));
         addFood(new GoldenPear(plugin));
         addFood(new VeganFish(plugin));
@@ -73,7 +75,8 @@ public class FoodManager implements Listener {
             float modelData = floats.get(0);
 
             for (Food food : registeredFoods) {
-                if (food.getCustomModelData() == modelData) {
+                // Use epsilon comparison for floats instead of == to avoid precision issues
+                if (Math.abs(food.getCustomModelData() - modelData) < 0.001f) {
                     food.onItemConsume(event.getPlayer());
                     break;
                 }
